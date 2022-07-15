@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Side
 {
-    void Effect() {
+    
+    void DoEffect() {
 
     }
 }
