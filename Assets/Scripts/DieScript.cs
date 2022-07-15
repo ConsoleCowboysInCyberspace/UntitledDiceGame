@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class DieScript : MonoBehaviour
 {
+    public string name;
     public int numSides;
     List<List<(float a, float b)>> ranges;
-    List<Side> sides;
+    List<Face> faces;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class DieScript : MonoBehaviour
         Debug.Log("Curside = " + curSide());
     }
 
-    int curSide(){
+    int curSide(){ //return Side when ready
         float curRot = transform.localRotation.eulerAngles.z;
         curRot %= 360;
         List<(float a, float b)> rangeSet = ranges[numSides - 3];
@@ -39,6 +40,4 @@ public class DieScript : MonoBehaviour
         }
         return -1;
     }
-
-
 }
