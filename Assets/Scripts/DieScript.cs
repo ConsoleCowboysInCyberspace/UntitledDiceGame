@@ -22,7 +22,7 @@ public class DieScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Curside = " + curSide());
+        //Debug.Log("Curside = " + curSide());
     }
 
     int curSide(){ //return Side when ready
