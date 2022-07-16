@@ -11,8 +11,8 @@ public class DieUnpacker : MonoBehaviour
         GOs = new List<GameObject>();
     }
 
-    public List<DieStats2> ClearDice(){
-        List<DieStats2> result = new List<DieStats2>();
+    public List<DieStats> ClearDice(){
+        List<DieStats> result = new List<DieStats>();
         foreach (GameObject go in GOs)
         {
             DieScript dscript = go.GetComponent(typeof(DieScript)) as DieScript;
@@ -23,7 +23,7 @@ public class DieUnpacker : MonoBehaviour
         return result;
     }
 
-    public GameObject unpackDie(DieStats2 packed, Vector3 pos)
+    public GameObject unpackDie(DieStats packed, Vector3 pos)
     {
         GameObject go = Instantiate(diePrefabs[packed._numSides - 3], pos, Quaternion.identity);
         GOs.Add(go);

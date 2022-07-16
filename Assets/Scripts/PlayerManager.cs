@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public DieDeck _dieDeck;
-    public List<DieStats2> _dieHand;
+    public List<DieStats> _dieHand;
     public DieUnpacker _dieUnpacker;
 
     public Vector3 spawnPos;
@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         _dieDeck = new DieDeck();
-        _dieHand = new List<DieStats2>();
+        _dieHand = new List<DieStats>();
         spawnPos = gameObject.transform.position;
     }
 
@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
             drawDie();
         }
         if (Input.GetKeyDown(KeyCode.Return)) {
-            List<DieStats2> cleared = _dieUnpacker.ClearDice();
+            List<DieStats> cleared = _dieUnpacker.ClearDice();
             Debug.Log("Cleared " + cleared + " dice");
             _dieDeck.Discard(cleared);
         }
@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
     // actions
     public void drawDie()
     {
-        DieStats2 pdie = _dieDeck.drawDie();
+        DieStats pdie = _dieDeck.drawDie();
         if(pdie != null){
             GameObject godie = _dieUnpacker.unpackDie(pdie, spawnPos);
             _dieHand.Add(pdie);

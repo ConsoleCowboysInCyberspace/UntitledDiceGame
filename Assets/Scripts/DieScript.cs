@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DieScript : MonoBehaviour
 {
-    public DieStats2 stats;
+    public DieStats stats;
     List<List<(float a, float b)>> ranges;
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class DieScript : MonoBehaviour
         ranges.Add(new List<(float a, float b)>{ (29.9f, 330.0f), (30.0f, 90.0f) , (90.0f, 150.0f) , (150.0f, 210.0f), (210.0f, 270.0f), (270.0f, 330.1f) }); //Six sides
     }
 
-    public void init(DieStats2 _stats){
+    public void init(DieStats _stats){
         stats = _stats;
     }
 
