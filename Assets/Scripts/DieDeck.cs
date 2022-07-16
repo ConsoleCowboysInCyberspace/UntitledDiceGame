@@ -39,10 +39,11 @@ public class DieDeck
         if(remaining.Count != 0){
             DieStats toDraw = remaining[0];
             remaining.RemoveAt(0);
-            //Debug.Log("Removing one die, die remaining = " + remaining.Count);
+            //Debug.Log("Drawing a die - " + remaining.Count + " dice left in the deck");
             return toDraw;
+
         } else if (discard.Count != 0) {
-            //Shuffle discard back into 
+            //Shuffle discard back into remaining
             remaining.AddRange(discard);
             discard.Clear();
             Shuffle(remaining);
@@ -55,6 +56,7 @@ public class DieDeck
         }
     }
 
+    //sourced from StackOverflow
     public void Shuffle(List<DieStats> alpha)  
     {  
         for (int i = 0; i < alpha.Count; i++) {

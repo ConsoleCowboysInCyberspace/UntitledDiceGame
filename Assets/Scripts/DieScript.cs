@@ -30,7 +30,7 @@ public class DieScript : MonoBehaviour
     }
 
     public EffectStruct curEffect(){
-        Debug.Log("Faces.count = " + stats._faces.Count);
+        //Debug.Log("Faces.count = " + stats._faces.Count);
         return (stats._faces[curSide()].effect);
     }
 
