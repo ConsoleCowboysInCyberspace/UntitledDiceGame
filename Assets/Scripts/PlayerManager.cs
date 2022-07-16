@@ -7,13 +7,17 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public DieDeck _dieDeck;
-    public DieHand _dieHand;
+    public List<DieStats2> _dieHand;
     public DieUnpacker _dieUnpacker;
+
+    public Vector3 spawnPos;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        _dieDeck = new DieDeck();
+        _dieHand = new List<DieStats2>();
+        spawnPos = gameObject.transform.position;
     }
 
     // Update is called once per frame
@@ -25,11 +29,17 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void resolveTurn(){}
+
     // actions
     public void drawDie()
     {
-        PackedDie pdie = _dieDeck.drawDie();
-        GameObject godie = _dieUnpacker.unpackDie(pdie, _dieHand.spawnPos);
-        _dieHand.diceInHand.Add(godie);
+        DieStats2 pdie = _dieDeck.drawDie();
+        if(pdie != null){
+            GameObject godie = _dieUnpacker.unpackDie(pdie, spawnPos);
+            _dieHand.Add(pdie);
+        } else {
+            Debug.Log("out of dice!");
+        }
     }
 }

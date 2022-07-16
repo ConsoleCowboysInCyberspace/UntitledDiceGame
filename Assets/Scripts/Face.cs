@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class Face
 {
-    
+    public string name;
+    public bool triggered;
+    //public Effect effect;
 }

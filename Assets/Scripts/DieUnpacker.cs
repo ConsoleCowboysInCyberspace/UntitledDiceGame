@@ -6,10 +6,13 @@ public class DieUnpacker : MonoBehaviour
 {
     public GameObject diePrefab;
     
-    public GameObject unpackDie(PackedDie packed, Vector3 pos)
+    public GameObject unpackDie(DieStats2 packed, Vector3 pos)
     {
         // add packed effects to the die here
-        return Instantiate(diePrefab, pos, Quaternion.identity);
+        GameObject go = Instantiate(diePrefab, pos, Quaternion.identity);
+        DieScript ds = go.GetComponent(typeof(DieScript)) as DieScript;
+        ds.stats = packed;
+        return go;
     }
 }
 

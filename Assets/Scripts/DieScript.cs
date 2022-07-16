@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class DieScript : MonoBehaviour
 {
-    public string name;
-    public int numSides;
+    public DieStats2 stats;
     List<List<(float a, float b)>> ranges;
-    List<Face> faces;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +17,10 @@ public class DieScript : MonoBehaviour
         ranges.Add(new List<(float a, float b)>{ (30.0f, 330.0f), (30.0f, 90.0f) , (90.0f, 150.0f) , (150.0f, 210.0f), (210.0f, 270.0f), (270.0f, 330.0f) }); //Six sides
     }
 
+    void init(DieStats2 _stats){
+        stats = _stats;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -28,7 +30,7 @@ public class DieScript : MonoBehaviour
     int curSide(){ //return Side when ready
         float curRot = transform.localRotation.eulerAngles.z;
         curRot %= 360;
-        List<(float a, float b)> rangeSet = ranges[numSides - 3];
+        List<(float a, float b)> rangeSet = ranges[stats._numSides - 3];
         if(curRot <= rangeSet[0].a || curRot > rangeSet[0].b){
             return 0;
         }
