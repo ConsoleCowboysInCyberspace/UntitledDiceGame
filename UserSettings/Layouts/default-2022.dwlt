@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sprites
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sprites
   m_LastFoldersGridSize: -1
   m_LastProjectPath: K:\Dev\Unity\2D\Untitled Dice Game\UntitledDiceGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b0520000
-    m_LastClickedID: 21168
-    m_ExpandedIDs: 00000000a052000000ca9a3b
+    m_SelectedIDs: de520000
+    m_LastClickedID: 21214
+    m_ExpandedIDs: 00000000c852000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a0520000
+    m_ExpandedIDs: 00000000c8520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -388,7 +388,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300009e700000000000008e740000
+    m_ExpandedInstanceIDs: c62300009e700000000000008e7400008052000090520000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: f4740000
+      m_SelectedIDs: 80520000
       m_LastClickedID: 0
       m_ExpandedIDs: 2afbffff
       m_RenameOverlay:
@@ -805,9 +805,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.6711824, y: 0.765092, z: -4.49386}
+    m_Target: {x: 3.352216, y: 0.13947049, z: -4.475387}
     speed: 2
-    m_Value: {x: 1.7771602, y: 0.7562991, z: -4.4955397}
+    m_Value: {x: 3.352216, y: 0.13947049, z: -4.475387}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -857,9 +857,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 3.565142
+    m_Target: 6.1349688
     speed: 2
-    m_Value: 3.7331328
+    m_Value: 6.1349688
   m_Ortho:
     m_Target: 1
     speed: 2

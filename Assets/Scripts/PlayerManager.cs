@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return)) {
             List<DieStats> cleared = _dieUnpacker.ClearDice();
-            Debug.Log("Cleared " + cleared + " dice");
+            //Debug.Log("Cleared " + cleared.Count + " dice");
             _dieDeck.Discard(cleared);
         }
     }

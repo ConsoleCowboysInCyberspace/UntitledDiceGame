@@ -13,7 +13,15 @@ public class DieDeck
         
         int sidesMod = 0;
         for(int i = 0; i < 8; i++){
-            DieStats ds = new DieStats("arg", 3 + (sidesMod++));
+            string type = "";
+            switch(sidesMod){
+                case(0): { type = "Heal"; break; }
+                case(1): { type = "Defend"; break; }
+                case(2): { type = "Attack"; break; }
+                case(3): { type = "Attack"; break; }
+                default: { Debug.Log("invalid sidesMod");  break; }
+            }
+            DieStats ds = new DieStats("arg", 3 + (sidesMod++), type);
             sidesMod %= 4;
             remaining.Add(ds);
         }
@@ -31,7 +39,7 @@ public class DieDeck
         if(remaining.Count != 0){
             DieStats toDraw = remaining[0];
             remaining.RemoveAt(0);
-            Debug.Log("Removing one die, die remaining = " + remaining.Count);
+            //Debug.Log("Removing one die, die remaining = " + remaining.Count);
             return toDraw;
         } else if (discard.Count != 0) {
             //Shuffle discard back into 
