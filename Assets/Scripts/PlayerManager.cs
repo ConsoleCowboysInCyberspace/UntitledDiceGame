@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public DieHand _dieHand;
     public DieUnpacker _dieUnpacker;
     
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class PlayerManager : MonoBehaviour
     }
 
     // actions
+
+    public void resolveTurn(){}
     public void drawDie()
     {
         PackedDie pdie = _dieDeck.drawDie();

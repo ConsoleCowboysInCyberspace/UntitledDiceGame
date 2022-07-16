@@ -1142,6 +1142,23 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a8b739b3373c9c147976716aa174ace6, type: 3}
+--- !u!1 &5021347251445677362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5021347251303221118, guid: a8b739b3373c9c147976716aa174ace6, type: 3}
+  m_PrefabInstance: {fileID: 5021347251445677361}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5021347251445677363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5021347251445677362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9128b05d71f6a744ca69171c21d92ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7745020122372367022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1201,3 +1218,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8839a03fe09c43648b3020a8cb3a9294, type: 3}
+--- !u!1 &7745020122372367023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7830748120202589561, guid: 8839a03fe09c43648b3020a8cb3a9294, type: 3}
+  m_PrefabInstance: {fileID: 7745020122372367022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7745020122372367024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7745020122372367023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7478a4338018f4aadd86a936501230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7745020122372367025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7745020122372367023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b79865e5568154da68f9761e5b3242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemy: {fileID: 0}
