@@ -11,13 +11,13 @@ public class DieScript : MonoBehaviour
     void Start()
     {
         ranges = new List<List<(float a, float b)>>();
-        ranges.Add(new List<(float a, float b)>{ (0.0f, 120.0f), (120.0f, 240.0f), (240.0f, 360.0f) }); //Three sides 
-        ranges.Add(new List<(float a, float b)>{ (45.0f, 315.0f), (45.0f, 135.0f), (135.0f, 225.0f), (225.0f, 315.0f) }); //Four sides
-        ranges.Add(new List<(float a, float b)>{ (0.0f, 72.0f), (72.0f, 144.0f), (144.0f, 216.0f), (216.0f, 288.0f), (288.0f, 360.0f) }); //Five sides
-        ranges.Add(new List<(float a, float b)>{ (30.0f, 330.0f), (30.0f, 90.0f) , (90.0f, 150.0f) , (150.0f, 210.0f), (210.0f, 270.0f), (270.0f, 330.0f) }); //Six sides
+        ranges.Add(new List<(float a, float b)>{ (-0.1f, 120.0f), (120.0f, 240.0f), (240.0f, 360.1f) }); //Three sides 
+        ranges.Add(new List<(float a, float b)>{ (44.9f, 315.0f), (45.0f, 135.0f), (135.0f, 225.0f), (225.0f, 315.1f) }); //Four sides
+        ranges.Add(new List<(float a, float b)>{ (-0.1f, 72.0f), (72.0f, 144.0f), (144.0f, 216.0f), (216.0f, 288.0f), (288.0f, 360.1f) }); //Five sides
+        ranges.Add(new List<(float a, float b)>{ (29.9f, 330.0f), (30.0f, 90.0f) , (90.0f, 150.0f) , (150.0f, 210.0f), (210.0f, 270.0f), (270.0f, 330.1f) }); //Six sides
     }
 
-    void init(DieStats2 _stats){
+    public void init(DieStats2 _stats){
         stats = _stats;
     }
 
@@ -31,10 +31,13 @@ public class DieScript : MonoBehaviour
         float curRot = transform.localRotation.eulerAngles.z;
         curRot %= 360;
         List<(float a, float b)> rangeSet = ranges[stats._numSides - 3];
-        if(curRot <= rangeSet[0].a || curRot > rangeSet[0].b){
+        bool isEven = stats._numSides % 2 == 0;
+//Debug.Log("CurRot = " + (int)curRot + "  rangeSet[0] = (" + rangeSet[0].a + "," + rangeSet[0].b + ")   isEven = " + isEven);
+        if(isEven && (curRot <= rangeSet[0].a || curRot > rangeSet[0].b)){
             return 0;
         }
-        for(int i = 1; i < rangeSet.Count; i++){
+        int start = (isEven ? 1 : 0);
+        for(int i = start; i < rangeSet.Count; i++){
             (float a, float b) range = rangeSet[i];
             if (curRot > range.a && curRot <= range.b){
                 return i;

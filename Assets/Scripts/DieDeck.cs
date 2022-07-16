@@ -10,20 +10,28 @@ public class DieDeck
     public DieDeck(){
         remaining = new List<DieStats2>();
         discard = new List<DieStats2>();
-        remaining.Add(new DieStats2("Attack", 4));
+        
+        int sidesMod = 0;
+        for(int i = 0; i < 8; i++){
+            DieStats2 ds = new DieStats2("arg", 3 + (sidesMod++));
+            sidesMod %= 4;
+            remaining.Add(ds);
+        }
         if(remaining[0] == null) { Debug.Log("Hrm"); }
-        remaining.Add(new DieStats2("Defend", 3));
+
         Shuffle(remaining);
+    }
+
+    public void Discard(List<DieStats2> cleared){
+        discard.AddRange(cleared);
     }
 
     public DieStats2 drawDie()
     {
         if(remaining.Count != 0){
             DieStats2 toDraw = remaining[0];
-            //if(toDraw == null){ Debug.Log("22"); }
-            //remaining.RemoveAt(0);
+            remaining.RemoveAt(0);
             Debug.Log("Removing one die, die remaining = " + remaining.Count);
-            //if(toDraw == null){ Debug.Log("25"); }
             return toDraw;
         } else if (discard.Count != 0) {
             //Shuffle discard back into 

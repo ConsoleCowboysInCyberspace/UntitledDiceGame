@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DieStats2 : MonoBehaviour
+public class DieStats2
 {
     public string _name;
     public int _numSides;

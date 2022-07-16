@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2187409239181438148
+--- !u!1 &4304552617860442432
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2187409239181438149}
-  - component: {fileID: 4680593337678937606}
+  - component: {fileID: 4304552617860442433}
+  - component: {fileID: 7283204633818053506}
   m_Layer: 0
   m_Name: DieUnpacker
   m_TagString: Untagged
@@ -17,31 +17,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2187409239181438149
+--- !u!4 &4304552617860442433
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187409239181438148}
+  m_GameObject: {fileID: 4304552617860442432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2061596, y: -0.97434914, z: 0.03392602}
+  m_LocalPosition: {x: -7.435746, y: -6.593303, z: 0.03392602}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4680593337678937606
+--- !u!114 &7283204633818053506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187409239181438148}
+  m_GameObject: {fileID: 4304552617860442432}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e8be871daa39324aae0f8297ead40ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diePrefab: {fileID: 2067264137482576524, guid: 4ac3301c9c285594d8a1356f66005138, type: 3}
+  diePrefabs:
+  - {fileID: 9064994494199579145, guid: 27dfe3352cab9e844bca3892e928ee5a, type: 3}
+  - {fileID: 4705005845113573274, guid: a6de79fa0727a404caf33a00988eba40, type: 3}
+  - {fileID: 5318210638118881697, guid: b6bb02f27b134a84f84370d2aa2a81d9, type: 3}
+  - {fileID: 1357824738762560316, guid: 7c75c8d62dffb8f439aec362e8a8d468, type: 3}
+  GOs: []

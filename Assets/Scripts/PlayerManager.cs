@@ -23,9 +23,13 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
+        if (Input.GetKeyDown("space")) {
             drawDie();
+        }
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            List<DieStats2> cleared = _dieUnpacker.ClearDice();
+            Debug.Log("Cleared " + cleared + " dice");
+            _dieDeck.Discard(cleared);
         }
     }
 

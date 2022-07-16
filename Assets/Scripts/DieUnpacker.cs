@@ -4,14 +4,31 @@ using UnityEngine;
 
 public class DieUnpacker : MonoBehaviour
 {
-    public GameObject diePrefab;
-    
+    public List<GameObject> diePrefabs;
+    public List<GameObject> GOs;
+
+    void Start() {
+        GOs = new List<GameObject>();
+    }
+
+    public List<DieStats2> ClearDice(){
+        List<DieStats2> result = new List<DieStats2>();
+        foreach (GameObject go in GOs)
+        {
+            DieScript dscript = go.GetComponent(typeof(DieScript)) as DieScript;
+            result.Add(dscript.stats);
+            Destroy(go);
+        }
+        GOs.Clear();
+        return result;
+    }
+
     public GameObject unpackDie(DieStats2 packed, Vector3 pos)
     {
-        // add packed effects to the die here
-        GameObject go = Instantiate(diePrefab, pos, Quaternion.identity);
+        GameObject go = Instantiate(diePrefabs[packed._numSides - 3], pos, Quaternion.identity);
+        GOs.Add(go);
         DieScript ds = go.GetComponent(typeof(DieScript)) as DieScript;
-        ds.stats = packed;
+        ds.init(packed);
         return go;
     }
 }
