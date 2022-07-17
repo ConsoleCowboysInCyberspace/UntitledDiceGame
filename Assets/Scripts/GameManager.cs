@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
     {
         if(player.alive){
             if (Input.GetKeyDown("space")) {
-                spawnDie();
+                //spawnDie();
             }
             if (Input.GetKeyDown(KeyCode.Return)) {
                 endTurn();
             }
         }
     }
-
+/*
     public void spawnDie()
     {
         if(player._dieHand.Count != 0){
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("No dice in hand!");
         }
     }
-
+*/
     public void endTurn(){
         int[] results = _dieUnpacker.readDice();
         int damageTaken = 0;
