@@ -36,5 +36,6 @@ public enum EffectType{
     Damage,
     Block,
     Heal,
+    Explode,
     NUM_EFFECTS
 }

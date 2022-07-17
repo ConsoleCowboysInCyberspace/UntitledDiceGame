@@ -25,12 +25,7 @@ public class Game_UI_Manager : MonoBehaviour
 
         var test = root.Q<Button>("test_button");
 
-        test.RegisterCallback<ClickEvent>(e => buttonCallback());
-    }
-
-    private void buttonCallback()
-    {
-        setPlayerInfo("Health: 10/10\nBlock: 15\nDamage: 15");
+        //test.RegisterCallback<ClickEvent>(e => buttonCallback());
     }
 
     public void writeLog(string str)

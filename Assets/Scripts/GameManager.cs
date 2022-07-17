@@ -8,19 +8,31 @@ public class GameManager : MonoBehaviour
     public Enemy curEnemy;
     List<Enemy> remainingEnemies;
     public DieUnpacker _dieUnpacker;
+    public Game_UI_Manager UIMan;
     Vector3 spawnPos;
+    public bool diceMoving;
+    public float playTimer = 0.0f;
 
     void Start()
     {
+        player.setMaxHP(10);
         spawnPos = gameObject.transform.position;
         remainingEnemies = new List<Enemy>();
         remainingEnemies.Add(new Enemy("Slime", 10, 3));
         remainingEnemies.Add(new Enemy("Giga Slime", 20, 5));
+        UIMan.setPlayerInfo("Damian McDice\nHP: " + player.CurHP() + "/" + player.MaxHP());
         spawnEnemy();
     }
 
     void Update()
     {
+        if(diceMoving && playTimer >= 0.3f){
+            diceMoving = _dieUnpacker.AreDiceMoving();
+            //Debug.Log("dice are moving");
+            if(!diceMoving){
+                Debug.Log("Dice have stopped moving");
+            }
+        }
         if(player.alive){
             if (Input.GetKeyDown("space")) {
                 //spawnDie();
@@ -29,21 +41,10 @@ public class GameManager : MonoBehaviour
                 endTurn();
             }
         }
+        playTimer += Time.deltaTime;
+        playTimer %= 500;
     }
-/*
-    public void spawnDie()
-    {
-        if(player._dieHand.Count != 0){
-            DieStats pdie = player._dieHand[0];
-            if(pdie != null){
-                GameObject godie = _dieUnpacker.unpackDie(pdie, spawnPos);
-            }
-            player._dieHand.RemoveAt(0);
-        } else {
-            Debug.Log("No dice in hand!");
-        }
-    }
-*/
+
     public void endTurn(){
         int[] results = _dieUnpacker.readDice();
         int damageTaken = 0;
@@ -66,14 +67,14 @@ public class GameManager : MonoBehaviour
         player._dieDeck.Discard(player._dieHand);
         
         //Output log messages and check state
-        Debug.Log("Turn ended. You attack the " + curEnemy.name + " for " + results[0] + " damage, heal " + results[2] + " hp, then take " + damageTaken + " damage");
-        if(player.curHealth <= 0){
+        UIMan.writeLogLn("Turn ended. You attack the " + curEnemy.name + " for " + results[0] + " damage, heal " + results[2] + " hp, then take " + damageTaken + " damage");
+        if(player.CurHP() <= 0){
             gameOver();
         } else if(curEnemy.curHealth <= 0){
             defeatEnemy();
-        } else {
-            Debug.Log("You have " + player.curHealth + "hp, the " + curEnemy.name + " has " + curEnemy.curHealth + " hp");
-        }
+        } 
+        UIMan.setPlayerInfo("Damian McDice\nHP: " + player.CurHP() + "/" + player.MaxHP());
+        UIMan.setEnemyInfo(curEnemy.name + "\nHP: " + curEnemy.curHealth + "/" +curEnemy.maxHealth + "\nAttack: " + curEnemy.attackStrength);
 
         //Draw back up to 5
         for(int i = 0; i < 5; i++){
@@ -83,19 +84,20 @@ public class GameManager : MonoBehaviour
 
     public void gameOver(){
         player.alive = false;
-        Debug.Log("You die :(");
+        UIMan.writeLogLn("You die :(");
     }
 
     public void spawnEnemy(){
         curEnemy = remainingEnemies[0];
         remainingEnemies.RemoveAt(0);
-        Debug.Log("A " + curEnemy.name + " approaches");
+        UIMan.writeLogLn("A " + curEnemy.name + " approaches!");
+        UIMan.setEnemyInfo(curEnemy.name + "\nHP: " + curEnemy.curHealth + "/" +curEnemy.maxHealth + "\nAttack: " + curEnemy.attackStrength);
     }
 
     public void defeatEnemy(){
-        Debug.Log("The " + curEnemy.name + " is defeated!");
+        UIMan.writeLogLn("The " + curEnemy.name + " is defeated!");
         if(remainingEnemies.Count == 0){
-            Debug.Log("You've defeated all the enemies!");
+            UIMan.writeLogLn("You've defeated all the enemies!");
             player.alive = false; //Probably change this later
         } else {
             spawnEnemy();

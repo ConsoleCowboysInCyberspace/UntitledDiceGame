@@ -15,9 +15,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="center_panel" style="width: 60%; flex-basis: auto; flex-grow: 0;">
-            <ui:Button tabindex="-1" text="test!" display-tooltip-when-elided="true" name="test_button" style="width: 50%; left: 25%; top: 50%;" />
-        </ui:VisualElement>
         <ui:VisualElement name="right_panel" class="vertical_panel" style="justify-content: flex-start; align-items: stretch; flex-shrink: 1; flex-grow: 0; width: 20%; flex-basis: auto;">
             <ui:VisualElement name="menu_conainer" class="border_panel">
                 <ui:Button tabindex="-1" text="Menu" display-tooltip-when-elided="true" name="menu_button" style="border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; flex-shrink: 1;" />

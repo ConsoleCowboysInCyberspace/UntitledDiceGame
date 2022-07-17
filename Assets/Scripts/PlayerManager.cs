@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public bool alive = true;
-    public int maxHealth, curHealth;
+    private int maxHealth, curHealth;
     public DieDeck _dieDeck;
     public List<DieStats> _dieHand;
     
@@ -33,6 +33,16 @@ public class PlayerManager : MonoBehaviour
         if(pdie != null){
             _dieHand.Add(pdie);
         }
+    }
+
+    public int CurHP(){
+        return curHealth;
+    }
+    public int MaxHP(){
+        return maxHealth;
+    }
+    public void setMaxHP(int n){
+        curHealth = maxHealth = n;
     }
 
     public void changeHealth(int n){
